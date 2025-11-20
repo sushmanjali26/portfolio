@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sushmanjali Mangam Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- AOS CSS (optional animation library) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff1e6;
+      padding-top: 80px;
+    }
+
+    .navbar-custom {
+      background-color: #cb997e;
+      padding: 10px 0;
+    }
+
+    .navbar-custom .nav-link {
+      color: #333;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .navbar-custom .nav-link:hover {
+      color: #fff;
+    }
+
+    .navbar-custom .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .navbar-custom .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .resume-btn {
+      background-color: #fff;
+      color: #5e3023;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 6px 16px;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #eddcd2;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      background-color: #ffe8d6;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #5e3023;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    section h2,
+    section h3 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #5e3023;
+    }
+
+    .skill-icon {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: #b2e0f5;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .project-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .card-title,
+    .project-card:hover .card-text {
+      font-family: 'Georgia', serif;
+    }
+
+    .certificate-img {
+      height: 150px;
+      margin: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-icon i {
+      font-size: 2rem;
+      color: #5e3023;
+      transition: transform 0.3s;
+    }
+
+    .contact-icon i:hover {
+      transform: scale(1.2);
+      color: #cb997e;
+    }
+    /* Contact Section Styling */
+#contact form {
+  margin-top: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact input,
+#contact textarea {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #cb997e;
+  box-shadow: 0 0 5px rgba(203, 153, 126, 0.5);
+  outline: none;
+}
+
+#contact button[type="submit"] {
+  background-color: #cb997e;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact button[type="submit"]:hover {
+  background-color: #a36e4f;
+}
+
+/* Contact Icons spacing */
+.contact-icon {
+  margin: 0 10px;
+}
+
+.contact-icon i {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #f8e1d1;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">Sushmanjali Mangam</a>
+      <div class="d-flex justify-content-end w-100">
+        <ul class="navbar-nav flex-row">
+          <li class="nav-item px-2"><a class="nav-link" href="#about">About Me</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#certificates">Certificates</a></li>
+          <li class="nav-item px-2"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item px-2">
+            <a href="sushmanjalimangam.pdf" class="btn resume-btn" target="_blank">Resume</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="your-profile.jpg" alt="Profile Image" />
+    <div class="hero-text">
+      <h1>Hello, I'm Sushmanjali Mangam</h1>
+      <p>ServiceNow System Administrator | Passionate about Python, Web Development, and IoT solutions. I enjoy solving real-world problems with practical tech approaches.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>I'm a Computer Science undergrad specializing in IoT. I’m detail-oriented and excited by opportunities to build real-world tech solutions. I'm currently exploring roles where I can combine hands-on learning with impactful work.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-light text-center" data-aos="zoom-in">
+    <div class="container">
+      <h3>My Skills</h3>
+      <div class="d-flex justify-content-center flex-wrap mt-4">
+        <img src="images/CSS3.png" alt="CSS" class="skill-icon">
+        <img src="images/html5.png" alt="HTML" class="skill-icon">
+        <img src="images/java.png" alt="JavaScript" class="skill-icon">
+        <img src="images/js.jpeg" alt="JavaScript" class="skill-icon">
+        <img src="images/python.jpeg" alt="Python" class="skill-icon">
+        <img src="images/servicenow.png" alt="ServiceNow" class="skill-icon">
+      </div>
+      <p class="mt-3">
+        "Skilled in HTML, CSS, Java ,JavaScript, Python and ServiceNow with hands-on experience building responsive static websites and full-stack projects. Passionate about frontend design and continuously learning to become a complete developer."
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section" data-aos="fade-up">
+    <div class="container">
+      <h3 class="text-center mb-5">Projects I Have Done</h3>
+      <div class="row g-4 justify-content-center">
+        <!-- Project 1 -->
+      <div class="col-md-4" data-aos="flip-left">
+        <div class="card project-card h-100">
+          <img src="images/online libarya.png" class="card-img-top" alt="Portfolio Website">
+          <div class="card-body">
+            <h5 class="card-title">Online library System</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-4" data-aos="flip-right">
+        <div class="card project-card h-100">
+          <a href="https://sushmanjali26.github.io/event-management/">
+          <img src="images/eventmangament.png" class="card-img-top" alt="Event Management">
+        </a>
+          <div class="card-body">
+            <h5 class="card-title">Event Management</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-md-4" data-aos="flip-left">
+        <div class="card project-card h-100">
+          <img src="images/Unknown.jpeg" class="card-img-top" alt="Parking Management">
+          <div class="card-body">
+            <h5 class="card-title">Arduino Smart Parking Management System</h5>
+          </div>
+        </div>
+      </div>
+
+        <!-- Project Cards (5 examples like before) -->
+        <!-- Same as your current cards -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certificates" class="bg-light text-center" data-aos="fade-left">
+    <div class="container">
+      <h3>Certifications</h3>
+      <div class="d-flex flex-wrap justify-content-center mt-4">
+        <img src="images/certificate1.jpg" alt="Certificate 1" class="certificate-img">
+        <img src="images/certificate2.jpg" alt="Certificate 2" class="certificate-img">
+        <img src="images/certificate3.jpg " alt="Certificate 3" class="certificate-img">
+        <img src="images/certificat4.jpg" alt="Certificate 4" class="certificate-img">
+        <img src="images/CERTIFICATE5.jpg" alt="Certificate 5" class="certificate-img">
+        <img src="images/certificate6.jpg " alt="Certificate 6" class="certificate-img">
+        <img src="images/certificate7.png " alt="Certificate 7" class="certificate-img">
+        <img src="images/certificate8.jpg " alt="Certificate 8" class="certificate-img">
+        <img src="images/certificate9.jpeg " alt="Certificate 9" class="certificate-img">
+        <!-- add more -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-light text-center" data-aos="fade-up">
+    <div class="container">
+      <h3>Contact Me</h3>
+      <p>If you’d like to discuss projects, collaborations, or opportunities, feel free to get in touch. I’d love to hear from you!</p>
+
+      <div class="mt-4 d-flex justify-content-center gap-4">
+        <a href="mailto:sushmanjalicseiot33@gmail.com" class="contact-icon" title="Email Me"><i class="bi bi-envelope-fill"></i></a>
+        <a href="tel:+919392291361" class="contact-icon" title="Call Me"><i class="bi bi-telephone-fill"></i></a>
+        <a href="https://linkedin.com/in/sushmanjai-mangam-3a2b57257" target="_blank" class="contact-icon" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <form id="contact-form">
+        <input type="text" name="user_name" placeholder="Your Name" required />
+        <input type="email" name="user_email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      
+      
+      
+
+      <div class="mt-5 mx-auto" style="max-width: 700px;">
+        <h5 class="fw-bold text-success">Conclusion</h5>
+        <p class="lead">Thank you for visiting my portfolio. I’m excited to keep learning, building, and collaborating on innovative web and IoT projects. Let’s connect and create something amazing together!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+   <!-- Include EmailJS SDK -->
+   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+   <script>
+     (function () {
+       emailjs.init("ez1BSxON_XQoA3zP-"); // Replace with your EmailJS public key
+     })();
+   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1200, once: true });</script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_k7ktbkp', 'template_8jz9kyl', this)
+        .then(() => {
+          alert("Message sent successfully!");
+          this.reset();
+        }, (error) => {
+          alert("Failed to send message. Try again later.");
+          console.error('EmailJS error:', error);
+        });
+    });
+  </script>
+  
+</body>
+</html>
